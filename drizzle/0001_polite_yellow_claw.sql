@@ -1,3 +1,7 @@
+\c drizzle_zero;
+
+CREATE SCHEMA "zero";
+--> statement-breakpoint
 CREATE TABLE "message" (
 	"id" uuid PRIMARY KEY NOT NULL,
 	"content" text NOT NULL,

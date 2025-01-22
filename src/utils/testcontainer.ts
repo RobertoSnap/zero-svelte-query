@@ -27,7 +27,7 @@ const pool = new Pool({
   port: PG_PORT,
   user: "user",
   password: "password",
-  database: "postgres",
+  database: "drizzle_zero",
 });
 
 export const db = drizzle(pool, {
@@ -173,7 +173,7 @@ export const startPostgresAndZero = async () => {
     })
     .withNetwork(network)
     .withEnvironment({
-      ZERO_UPSTREAM_DB: `${basePgUrl}/postgres`,
+      ZERO_UPSTREAM_DB: `${basePgUrl}/drizzle_zero`,
       ZERO_CVR_DB: `${basePgUrl}/drizzle_zero_cvr`,
       ZERO_CHANGE_DB: `${basePgUrl}/drizzle_zero_cdb`,
       ZERO_AUTH_SECRET: "secretkey",
