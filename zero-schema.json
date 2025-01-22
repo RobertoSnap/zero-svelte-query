@@ -1,0 +1,204 @@
+{
+  "permissions": {
+    "user": {
+      "row": {
+        "update": {}
+      }
+    }
+  },
+  "schema": {
+    "version": 1,
+    "tables": {
+      "message": {
+        "tableName": "message",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "content": {
+            "type": "string",
+            "optional": false
+          },
+          "createdAt": {
+            "type": "number",
+            "optional": true
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "updatedAt": {
+            "type": "number",
+            "optional": true
+          },
+          "userId": {
+            "type": "string",
+            "optional": true
+          }
+        },
+        "relationships": {
+          "messagesToTags": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "messageId"
+            ],
+            "destSchema": "messageTag"
+          },
+          "tags": [
+            {
+              "sourceField": [
+                "id"
+              ],
+              "destField": [
+                "messageId"
+              ],
+              "destSchema": "messageTag"
+            },
+            {
+              "sourceField": [
+                "tagId"
+              ],
+              "destField": [
+                "id"
+              ],
+              "destSchema": "tag"
+            }
+          ],
+          "user": {
+            "sourceField": [
+              "userId"
+            ],
+            "destField": [
+              "id"
+            ],
+            "destSchema": "user"
+          }
+        }
+      },
+      "messageTag": {
+        "tableName": "messageTag",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "createdAt": {
+            "type": "number",
+            "optional": true
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "messageId": {
+            "type": "string",
+            "optional": true
+          },
+          "tagId": {
+            "type": "string",
+            "optional": true
+          },
+          "updatedAt": {
+            "type": "number",
+            "optional": true
+          }
+        },
+        "relationships": {
+          "message": {
+            "sourceField": [
+              "messageId"
+            ],
+            "destField": [
+              "id"
+            ],
+            "destSchema": "message"
+          },
+          "tag": {
+            "sourceField": [
+              "tagId"
+            ],
+            "destField": [
+              "id"
+            ],
+            "destSchema": "tag"
+          }
+        }
+      },
+      "tag": {
+        "tableName": "tag",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "createdAt": {
+            "type": "number",
+            "optional": true
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "updatedAt": {
+            "type": "number",
+            "optional": true
+          }
+        },
+        "relationships": {
+          "messagesToTags": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "tagId"
+            ],
+            "destSchema": "messageTag"
+          }
+        }
+      },
+      "user": {
+        "tableName": "user",
+        "primaryKey": [
+          "id"
+        ],
+        "columns": {
+          "age": {
+            "type": "number",
+            "optional": false
+          },
+          "createdAt": {
+            "type": "number",
+            "optional": true
+          },
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "updatedAt": {
+            "type": "number",
+            "optional": true
+          }
+        },
+        "relationships": {
+          "messages": {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "userId"
+            ],
+            "destSchema": "message"
+          }
+        }
+      }
+    }
+  }
+}

@@ -56,3 +56,8 @@ To publish your library to [npm](https://www.npmjs.com):
 ```bash
 npm publish
 ```
+
+## Thanks to
+
+- https://github.com/BriefHQ/drizzle-zero/tree/main
+- https://github.com/rocicorp/zero/tree/main

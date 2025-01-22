@@ -1,59 +1,76 @@
 {
-	"name": "zero-svelte-query",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build && npm run prepack",
-		"preview": "vite preview",
-		"prepack": "svelte-kit sync && svelte-package && publint",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint .",
-		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run && npm run test:e2e",
-		"test:e2e": "playwright test"
-	},
-	"files": [
-		"dist",
-		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*"
-	],
-	"sideEffects": [
-		"**/*.css"
-	],
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"type": "module",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
-	},
-	"peerDependencies": {
-		"svelte": "^5.0.0"
-	},
-	"devDependencies": {
-		"@eslint/compat": "^1.2.5",
-		"@eslint/js": "^9.18.0",
-		"@playwright/test": "^1.49.1",
-		"@sveltejs/adapter-node": "^5.2.11",
-		"@sveltejs/kit": "^2.0.0",
-		"@sveltejs/package": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0",
-		"eslint": "^9.18.0",
-		"eslint-config-prettier": "^10.0.1",
-		"eslint-plugin-svelte": "^2.46.1",
-		"globals": "^15.14.0",
-		"prettier": "^3.4.2",
-		"prettier-plugin-svelte": "^3.3.3",
-		"publint": "^0.3.2",
-		"svelte": "^5.0.0",
-		"svelte-check": "^4.0.0",
-		"typescript": "^5.0.0",
-		"typescript-eslint": "^8.20.0",
-		"vite": "^5.4.11",
-		"vitest": "^2.1.8"
-	}
+  "name": "zero-svelte-query",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && npm run prepack",
+    "preview": "vite preview",
+    "prepack": "svelte-kit sync && svelte-package && publint",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
+    "test:unit": "vitest",
+    "test": "npm run test:unit -- --run && npm run test:e2e",
+    "test:e2e": "playwright test",
+    "zero": "zero-cache --schema-file zero-schema.json",
+    "zero:dev": "zero-cache-dev -p src/server/zero/schema.ts",
+    "schema": "zero-build-schema -p src/zero/schema.ts",
+    "db:generate": "drizzle-kit generate",
+    "pretest": "pnpm run schema",
+    "test:browser": "vitest --workspace=vitest.workspace.ts"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "@rocicorp/zero": "0.11.2025011402",
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.2.5",
+    "@eslint/js": "^9.18.0",
+    "@playwright/test": "^1.49.1",
+    "@sveltejs/adapter-node": "^5.2.11",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/package": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@testcontainers/postgresql": "^10.17.1",
+    "@types/pg": "^8.11.10",
+    "@vitest/browser": "^3.0.3",
+    "drizzle-kit": "^0.30.2",
+    "drizzle-orm": "^0.38.4",
+    "drizzle-zero": "^0.2.3",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-svelte": "^2.46.1",
+    "globals": "^15.14.0",
+    "pg": "^8.13.1",
+    "playwright": "^1.49.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.3.3",
+    "publint": "^0.3.2",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "testcontainers": "^10.17.1",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.20.0",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8",
+    "vitest-browser-svelte": "^0.1.0"
+  }
 }
