@@ -1,4 +1,4 @@
-import type { Query, QueryType, TableSchema } from '@rocicorp/zero/advanced';
+import type { Query, QueryType, Smash, TableSchema } from '@rocicorp/zero/advanced';
 import { createSubscriber } from 'svelte/reactivity';
 
 export class ZeroQueryClass<
@@ -22,7 +22,7 @@ export class ZeroQueryClass<
             }
         })
     }
-    get current() {
+    get current(): Smash<TReturn> {
         this.#subscribe()
         return this.#view.data
     }

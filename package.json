@@ -22,7 +22,11 @@
 		"db:generate": "drizzle-kit generate",
 		"pretest": "pnpm run schema",
 		"dev:backend": "pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts",
-		"release": "release-it"
+		"release": "release-it",
+		"release:beta:new:minor": "release-it minor --preRelease=beta",
+		"release:beta:new:major": "release-it major --preRelease=beta",
+		"release:beta:patch": "release-it --preRelease=beta",
+		"release:beta:rc": "release-it --preRelease=rc"
 	},
 	"release-it": {
 		"git": {
