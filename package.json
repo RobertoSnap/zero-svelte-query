@@ -24,11 +24,13 @@
 		"dev:backend": "pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts",
 		"release": "release-it"
 	},
-	"git": {
-		"changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
-	},
-	"hooks": {
-		"after:bump": "npx auto-changelog -p"
+	"release-it": {
+		"git": {
+			"changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
+		},
+		"hooks": {
+			"after:bump": "npx auto-changelog -p"
+		}
 	},
 	"files": [
 		"dist",
