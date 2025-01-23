@@ -20,7 +20,14 @@
 		"schema": "zero-build-schema -p src/zero/schema.ts",
 		"db:generate": "drizzle-kit generate",
 		"pretest": "pnpm run schema",
-		"dev:backend": "pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts"
+		"dev:backend": "pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts",
+		"release": "release-it"
+	},
+	"git": {
+		"changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
+	},
+	"hooks": {
+		"after:bump": "npx auto-changelog -p"
 	},
 	"files": [
 		"dist",
