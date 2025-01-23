@@ -1,6 +1,6 @@
 {
 	"name": "zero-svelte-query",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"repository": "https://github.com/RobertoSnap/zero-svelte-query",
 	"scripts": {
 		"dev": "pnpm run-p dev:backend dev:vite",
