@@ -49,7 +49,7 @@ export const seed = async () => {
 
   // Create additional users
   const [user2] = await db.insert(userTable).values({
-    age: 25,
+    age: 18,
     id: randomUUID(),
     name: "Jane Smith",
     createdAt: new Date().toISOString(),

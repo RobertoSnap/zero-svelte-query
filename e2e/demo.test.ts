@@ -1,7 +1,8 @@
 import { expect, test, } from '@playwright/test';
 
 
-test('home page has expected h1', async ({ page, }) => {
+test('users page has expected user', async ({ page, }) => {
 	await page.goto('/users');
-	await expect(page.locator('h3')).toHaveText('Jane Smith');
+	await page.waitForTimeout(5000);
+	await expect(page.locator('h4').first()).toHaveText('Jane Smith')
 });

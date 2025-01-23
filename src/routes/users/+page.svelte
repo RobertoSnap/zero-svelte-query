@@ -5,7 +5,12 @@
 	import CreateUserForm from '$utils/CreateUserForm.svelte';
 
 	const zero = getZero();
-	const users = useQuery(zero.query.user.limit(30).related('messages', (m) => m.related('tags')));
+	const users = useQuery(
+		zero.query.user
+			.limit(30)
+			.orderBy('age', 'asc')
+			.related('messages', (m) => m.related('tags'))
+	);
 
 	// $inspect(users);
 </script>
@@ -21,7 +26,7 @@
 		<div class="users-grid">
 			{#each users.current as user}
 				<div class="user-card">
-					<h3>{user.name}</h3>
+					<h4>{user.name}</h4>
 					<p class="age">Age: {user.age}</p>
 					<div class="messages">
 						{#each user.messages as message}
