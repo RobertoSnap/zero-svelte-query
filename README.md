@@ -18,6 +18,10 @@ yarn add zero-svelte-query
 ```
 
 ## Usage
+See real examples in [src/routes](https://github.com/RobertoSnap/zero-svelte-query/tree/main/src/routes)
+
+### Zero store 
+
 Initate zero somewhere in your app, here is just an example
 `zero.state.svelte.ts`
 ```ts
@@ -54,6 +58,7 @@ setZeroStore({
 });
 ```
 
+## Zero Query
 
 Use in a +page.svelte file
 
