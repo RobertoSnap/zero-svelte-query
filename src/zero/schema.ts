@@ -43,7 +43,27 @@ export const permissions = definePermissions<AuthData, Schema>(schema, () => {
     return {
         user: {
             row: {
-                select: ANYONE_CAN
+                select: ANYONE_CAN,
+                insert: ANYONE_CAN,
+                update: ANYONE_CAN,
+                delete: ANYONE_CAN
+            },
+
+        },
+        message: {
+            row: {
+                select: ANYONE_CAN,
+                insert: ANYONE_CAN,
+                update: ANYONE_CAN,
+                delete: ANYONE_CAN
+            }
+        },
+        tag: {
+            row: {
+                select: ANYONE_CAN,
+                insert: ANYONE_CAN,
+                update: ANYONE_CAN,
+                delete: ANYONE_CAN
             }
         }
     };

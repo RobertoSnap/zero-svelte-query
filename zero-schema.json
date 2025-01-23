@@ -4,6 +4,16 @@
       "row": {
         "update": {}
       }
+    },
+    "message": {
+      "row": {
+        "update": {}
+      }
+    },
+    "tag": {
+      "row": {
+        "update": {}
+      }
     }
   },
   "schema": {

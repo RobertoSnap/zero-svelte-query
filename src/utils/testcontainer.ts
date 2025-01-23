@@ -108,8 +108,6 @@ export const seed = async () => {
     { id: randomUUID(), messageId: message4.id, tagId: tag2.id }
   ]);
 
-  console.log("seeded");
-  console.log(await db.query.userTable.findMany());
 };
 
 

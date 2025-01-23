@@ -18,7 +18,7 @@
 		"schema": "zero-build-schema -p src/zero/schema.ts",
 		"db:generate": "drizzle-kit generate",
 		"pretest": "pnpm run schema",
-		"backend": "TEST=true vite-node src/scripts/database-and-zero-server.ts"
+		"backend": "pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts"
 	},
 	"files": [
 		"dist",
