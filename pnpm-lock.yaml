@@ -50,7 +50,7 @@ importers:
         version: 0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.10)(pg@8.13.1)(postgres@3.4.5)
       drizzle-zero:
         specifier: ^0.2.3
-        version: 0.2.3(@rocicorp/zero@0.11.2025011402)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.10)(pg@8.13.1)(postgres@3.4.5))
+        version: 0.2.4(@rocicorp/zero@0.11.2025011402)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.10)(pg@8.13.1)(postgres@3.4.5))
       eslint:
         specifier: ^9.18.0
         version: 9.18.0
@@ -2136,8 +2136,8 @@ packages:
       sqlite3:
         optional: true
 
-  drizzle-zero@0.2.3:
-    resolution: {integrity: sha512-OYJAgamr9QY+MuoJo3fFvmEIJjV+7tozg/BiVT073shOsJdBg4LNWMm7WrznGObOkNSxuynW4I+D9+Y6N5lNvA==}
+  drizzle-zero@0.2.4:
+    resolution: {integrity: sha512-sVvvRuq+GRALYLsX6nC1cj3nACgEKjCL+vGjd5qhj2zoVMYG1UXzMI+2YNtIrIXhZvdHh12uLmRLKpLsLW3WcA==}
     peerDependencies:
       '@rocicorp/zero': '>=0.8.2024121204'
       drizzle-orm: '>=0.36.0'
@@ -5959,7 +5959,7 @@ snapshots:
       pg: 8.13.1
       postgres: 3.4.5
 
-  drizzle-zero@0.2.3(@rocicorp/zero@0.11.2025011402)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.10)(pg@8.13.1)(postgres@3.4.5)):
+  drizzle-zero@0.2.4(@rocicorp/zero@0.11.2025011402)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.10)(pg@8.13.1)(postgres@3.4.5)):
     dependencies:
       '@rocicorp/zero': 0.11.2025011402
       drizzle-orm: 0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.10)(pg@8.13.1)(postgres@3.4.5)
