@@ -13,8 +13,34 @@ yarn add zero-svelte-query
 ```
 
 ## Usage
+Initate zero somewhere in your app, here is just an example
+`zero.state.svelte.ts`
+```ts
+import { schema, type Schema } from '$zero/schema';
+import { Zero, type ZeroOptions } from '@rocicorp/zero';
+import { get, writable } from 'svelte/store';
 
-Initate 
+export const zeroStore = writable<Zero<Schema> | null>(null);
+
+export const setZeroStore = (_options: Partial<ZeroOptions<Schema>>) => {
+	const options = {
+		schema,
+		kvStore: "mem",
+		logLevel: "debug",
+		..._options,
+	} as ZeroOptions<Schema>;
+	zeroStore.set(new Zero(options));
+}
+
+export const getZero = () => {
+	const z = get(zeroStore);
+	if (!z) {
+		throw new Error('Zero not initialized');
+	}
+	return z;
+}
+```
+Then use it in for example a +layout.svelte file
 ```typescript
 setZeroStore({
     server: 'http://localhost:5949',
