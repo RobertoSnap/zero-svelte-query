@@ -2,9 +2,11 @@
 	"name": "zero-svelte-query",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "pnpm run-p dev:backend dev:vite",
+		"dev:vite": "vite dev",
 		"build": "vite build && npm run prepack",
-		"preview": "vite preview",
+		"preview": "pnpm run-p dev:backend vite:preview",
+		"vite:preview": "vite preview",
 		"prepack": "svelte-kit sync && svelte-package && publint",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -18,7 +20,7 @@
 		"schema": "zero-build-schema -p src/zero/schema.ts",
 		"db:generate": "drizzle-kit generate",
 		"pretest": "pnpm run schema",
-		"backend": "pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts"
+		"dev:backend": "pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts"
 	},
 	"files": [
 		"dist",
@@ -58,6 +60,7 @@
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^2.46.1",
 		"globals": "^15.14.0",
+		"npm-run-all2": "^7.0.2",
 		"pg": "^8.13.1",
 		"playwright": "^1.49.1",
 		"prettier": "^3.4.2",

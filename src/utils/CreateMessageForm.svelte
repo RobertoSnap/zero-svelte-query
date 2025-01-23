@@ -3,7 +3,7 @@
 
 	const zero = getZero();
 
-	const userId = $props();
+	const { userId } = $props();
 
 	let content = $state('');
 
@@ -12,10 +12,9 @@
 		console.log('content', content);
 		zero.mutate.message.insert({
 			id: crypto.randomUUID(),
-			content: JSON.parse(JSON.stringify(content)),
+			content: 'test',
 			userId: userId
 		});
-
 		// Reset form
 		content = '';
 	}

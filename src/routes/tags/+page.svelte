@@ -4,8 +4,6 @@
 
 	const zero = getZero();
 	let tags = useQuery(zero.query.tag);
-
-	// $inspect(users);
 </script>
 
 {#if tags.current}
@@ -13,13 +11,3 @@
 		<p>{tag.name}</p>
 	{/each}
 {/if}
-
-<button
-	onclick={() => {
-		zero.mutate.user.insert({
-			age: 10,
-			id: crypto.randomUUID(),
-			name: 'John Doe'
-		});
-	}}>Add User</button
->

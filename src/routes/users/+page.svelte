@@ -5,7 +5,7 @@
 	import CreateUserForm from '$utils/CreateUserForm.svelte';
 
 	const zero = getZero();
-	const users = useQuery(zero.query.user.limit(30).related('messages'));
+	const users = useQuery(zero.query.user.limit(30).related('messages', (m) => m.related('tags')));
 
 	// $inspect(users);
 </script>
@@ -27,6 +27,11 @@
 						{#each user.messages as message}
 							<div class="message">
 								{message.content}
+							</div>
+							<div class="tags">
+								{#each message.tags as tag}
+									<span class="tag">{tag.name}</span>
+								{/each}
 							</div>
 						{/each}
 						<CreateMessageForm userId={user.id} />
@@ -95,6 +100,17 @@
 		border-radius: 6px;
 		font-size: 0.9rem;
 		color: #495057;
+	}
+
+	.tag {
+		display: inline-block;
+		background: #e9ecef;
+		color: #495057;
+		padding: 0.2rem 0.6rem;
+		border-radius: 12px;
+		font-size: 0.6rem;
+		margin: 0.2rem;
+		font-weight: 200;
 	}
 
 	.age {

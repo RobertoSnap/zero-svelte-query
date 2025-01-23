@@ -9,7 +9,7 @@ export const setZeroStore = (_options: Partial<ZeroOptions<Schema>>) => {
 	const options = {
 		schema,
 		kvStore: "mem",
-		// logLevel: "debug",
+		logLevel: "debug",
 		..._options,
 	} as ZeroOptions<Schema>;
 	zeroStore.set(new Zero(options));
