@@ -8,7 +8,7 @@
 A Svelte library for integrating [@rocicorp/zero](https://github.com/rocicorp/zero) with Svelte applications.
 
 ## Installation
-
+From [NPM](https://www.npmjs.com/package/zero-svelte-query)
 ```bash
 npm install zero-svelte-query
 # or
@@ -58,7 +58,7 @@ setZeroStore({
 });
 ```
 
-## Zero Query
+### Zero Query
 
 Use in a +page.svelte file
 
