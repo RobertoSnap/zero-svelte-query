@@ -65,7 +65,7 @@ Use in a +page.svelte file
 ```ts
 <script lang="ts">
 	import { useQuery } from 'zero-svelte-query';
-	import { getZero } from 'zero-svelte-query';
+	import { getZero } from 'YOUR/IMPLEMENTATION/zero.state.svelte.ts';
 
 	const zero = getZero();
 	let tags = useQuery(zero.query.tag);
