@@ -3,7 +3,8 @@
 	"version": "0.0.8",
 	"repository": "https://github.com/RobertoSnap/zero-svelte-query",
 	"publishConfig": {
-		"registry": "https://www.npmjs.com/package/zero-svelte-query"
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
 	},
 	"scripts": {
 		"dev": "pnpm run-p dev:backend dev:vite",
