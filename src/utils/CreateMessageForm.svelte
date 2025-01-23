@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getZero } from '$lib/zero.state.svelte';
+	import { getZero } from '$utils/zero.state.svelte';
 
 	const zero = getZero();
 

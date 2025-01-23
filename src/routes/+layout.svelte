@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { setZeroStore, zeroReady } from '../lib/zero.state.svelte.js';
+	import { setZeroStore, zeroReady } from '$utils/zero.state.svelte.js';
 
 	let { children } = $props();
 

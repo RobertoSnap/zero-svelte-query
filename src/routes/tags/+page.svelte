@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { useQuery } from '$lib/useQuery.svelte';
-	import { getZero } from '$lib/zero.state.svelte';
+	import { getZero } from '$utils/zero.state.svelte';
 
 	const zero = getZero();
 	let tags = useQuery(zero.query.tag);
