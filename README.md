@@ -1,3 +1,8 @@
+
+![NPM Version](https://img.shields.io/npm/v/zero-svelte-query)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/zero-svelte-query)
+![NPM Downloads](https://img.shields.io/npm/dt/zero-svelte-query)
+
 # zero-svelte-query
 
 A Svelte library for integrating [@rocicorp/zero](https://github.com/rocicorp/zero) with Svelte applications.
