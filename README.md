@@ -1,7 +1,7 @@
 
-![NPM Version](https://img.shields.io/npm/v/zero-svelte-query)
-![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/zero-svelte-query)
-![NPM Downloads](https://img.shields.io/npm/dt/zero-svelte-query)
+[![NPM Version](https://img.shields.io/npm/v/zero-svelte-query)](https://www.npmjs.com/package/zero-svelte-query)
+[![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/zero-svelte-query)](https://www.npmjs.com/package/zero-svelte-query)
+[![NPM Downloads](https://img.shields.io/npm/dt/zero-svelte-query)](https://www.npmjs.com/package/zero-svelte-query)
 
 # zero-svelte-query
 
