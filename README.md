@@ -1,63 +1,87 @@
-# create-svelte
+# zero-svelte-query
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A Svelte library for integrating [@rocicorp/zero](https://github.com/rocicorp/zero) with Svelte applications.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install zero-svelte-query
+# or
+pnpm add zero-svelte-query
+# or
+yarn add zero-svelte-query
 ```
 
-## Developing
+## Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Initate 
+```typescript
+setZeroStore({
+    server: 'http://localhost:5949',
+    auth: token || undefined,
+    userID: userId || 'anon'
+});
+```
+
+
+Use in a +page.svelte file
+
+```ts
+<script lang="ts">
+	import { useQuery } from 'zero-svelte-query';
+	import { getZero } from 'zero-svelte-query';
+
+	const zero = getZero();
+	let tags = useQuery(zero.query.tag);
+</script>
+
+{#if tags.current}
+	{#each tags.current as tag}
+		<p>{tag.name}</p>
+	{/each}
+{/if}
+
+```
+
+
+## Development
+
+### Setup
 
 ```bash
-npm run dev
+# Install dependencies
+pnpm install
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# This will start a testcontainer with zero-cache, postgres and a vite svelte-kit application.
+pnpm dev
+
+# Run tests
+pnpm test
+
+# Run only unit tests
+pnpm test:unit
+
+# Run only e2e tests
+pnpm test:e2e
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+### Scripts
 
-## Building
+- `pnpm dev` - Starts both backend and frontend development servers
+- `pnpm build` - Builds the package for production
+- `pnpm schema` - Builds the Zero schema
+- `pnpm db:generate` - Generates database files using Drizzle Kit
 
-To build your library:
+## License
 
-```bash
-npm run package
-```
+Apache 2.0
 
-To create a production version of your showcase app:
+## Contributing
 
-```bash
-npm run build
-```
+Dont know yet
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
-
-## Thanks to
-
-- https://github.com/BriefHQ/drizzle-zero/tree/main
-- https://github.com/rocicorp/zero/tree/main
+# Credits
+- [stolinski/zero-svelte](https://github.com/stolinski/zero-svelte/blob/main/src/lib/query.svelte.ts)
+- [BriefHQ/drizzle-zero](https://github.com/BriefHQ/drizzle-zero/tree/canary)
+- [danielroe/zero-vue](https://github.com/danielroe/zero-vue/blob/main/src/query.ts)
+- [@rocicorp/zero](https://github.com/rocicorp/zero)
