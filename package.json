@@ -1,6 +1,7 @@
 {
 	"name": "zero-svelte-query",
 	"version": "0.0.3",
+	"repository": "https://github.com/RobertoSnap/zero-svelte-query",
 	"scripts": {
 		"dev": "pnpm run-p dev:backend dev:vite",
 		"dev:vite": "vite dev",
@@ -60,6 +61,7 @@
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@testcontainers/postgresql": "^10.17.1",
 		"@types/pg": "^8.11.10",
+		"auto-changelog": "^2.5.0",
 		"drizzle-kit": "^0.30.2",
 		"drizzle-orm": "^0.38.4",
 		"drizzle-zero": "^0.2.3",
