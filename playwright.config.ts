@@ -2,7 +2,6 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
 	webServer: {
-		reuseExistingServer: true,
 		command: 'pnpm build && pnpm preview',
 		port: 4173
 	},
@@ -11,10 +10,10 @@ export default defineConfig({
 			name: 'chromium',
 			use: { ...devices['Desktop Chrome'], headless: false },
 		},
-		{
-			name: 'chromium_headless',
-			use: { ...devices['Desktop Chrome'], headless: true },
-		},
+		// {
+		// 	name: 'chromium_headless',
+		// 	use: { ...devices['Desktop Chrome'], headless: true },
+		// },
 
 	],
 	testDir: 'e2e'

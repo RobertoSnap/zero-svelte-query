@@ -85,7 +85,7 @@
 		transform: translateY(-2px);
 	}
 
-	.user-card h3 {
+	.user-card h4 {
 		color: #2c3e50;
 		margin: 0 0 1rem 0;
 		font-size: 1.2rem;
