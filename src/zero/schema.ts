@@ -1,7 +1,6 @@
 import * as drizzleSchemas from "$server/db/tables/index.js";
 import {
     ANYONE_CAN,
-    createSchema,
     definePermissions,
     type Row
 } from "@rocicorp/zero";
@@ -14,7 +13,7 @@ type AuthData = {
     org_role: string;
 };
 
-export const schema = createSchema(
+export const schema =
     createZeroSchema(drizzleSchemas, {
         version: 1,
         tables: {
@@ -29,7 +28,7 @@ export const schema = createSchema(
             }
         },
     })
-);
+
 
 export type Schema = typeof schema;
 export type UserZero = Row<typeof schema.tables.user>;

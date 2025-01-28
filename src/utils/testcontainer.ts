@@ -10,8 +10,8 @@ import { GenericContainer, Network, PullPolicy } from "testcontainers";
 import { randomUUID } from "crypto";
 import { schema } from "../zero/schema.js";
 
-const PG_PORT = process.env.PG_VERSION === "17" ? 5732 : 5632;
-const ZERO_PORT = process.env.PG_VERSION === "17" ? 5949 : 4949;
+const PG_PORT = 5732
+const ZERO_PORT = 5949
 
 export const getNewZero = async () => {
   return new Zero({
@@ -164,7 +164,7 @@ export const startPostgresAndZero = async () => {
   const basePgUrl = `postgresql://${postgresContainer.getUsername()}:${postgresContainer.getPassword()}@postgres-db:5432`;
 
   // Start Zero container
-  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.11.2025011402-73df1d`)
+  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.12.2025012501-3203d0`)
     .withExposedPorts({
       container: 4848,
       host: ZERO_PORT,
@@ -181,17 +181,17 @@ export const startPostgresAndZero = async () => {
     })
     .withCopyFilesToContainer([
       {
-        source: path.join(__dirname, "../../zero-schema.json"),
+        source: path.join(__dirname, "./../../zero-schema.json"),
         target: "/opt/app/zero-schema.json",
       },
     ])
     .withStartupTimeout(60000)
     .withPullPolicy(PullPolicy.alwaysPull())
-    // .withLogConsumer((stream) => {
-    //   stream.on('data', (line) => {
-    //     console.log(`[Zero] ${line}`);
-    //   });
-    // })
+    .withLogConsumer((stream) => {
+      stream.on('data', (line) => {
+        console.log(`[Zero] ${line}`);
+      });
+    })
     .start()
 
   return {
