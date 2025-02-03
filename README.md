@@ -125,9 +125,9 @@ This library is a lightweight createSubscriber wrapper around the zero instance.
 # Versions
 | @rocicorp/zero | drizzle-zero-svelte | @rocicorp/zero spesific |
 |----------------|---------------------|------|
-| ^0.12.0 | ^ 0.2.0 | 0.12.2025012501 |
 | ^0.11.0 | ^ 0.1.0 | 0.11.2025011402 |
-
+| ^0.12.0 | ^ 0.2.0 | 0.12.2025012501 |
+| ^0.13.0 | ^ 0.3.0 | 0.13.2025013101 |
 # Credits
 - [stolinski/zero-svelte](https://github.com/stolinski/zero-svelte/blob/main/src/lib/query.svelte.ts)
 - [BriefHQ/drizzle-zero](https://github.com/BriefHQ/drizzle-zero/tree/canary)
