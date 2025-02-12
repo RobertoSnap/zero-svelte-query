@@ -10,7 +10,7 @@
 	function handleSubmit() {
 		if (!content.trim()) return;
 		console.log('content', content);
-		zero.mutate.message.insert({
+		zero.mutate.messages.insert({
 			id: crypto.randomUUID(),
 			content: 'test',
 			userId: userId

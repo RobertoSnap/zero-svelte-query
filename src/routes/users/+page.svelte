@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { useQuery } from '$lib/useQuery.svelte';
-	import CreateMessageForm from '$utils/CreateMessageForm.svelte';
-	import CreateUserForm from '$utils/CreateUserForm.svelte';
 	import { getZero } from '$utils/zero.state.svelte';
+	import CreateMessageForm from '../../components/CreateMessageForm.svelte';
+	import CreateUserForm from '../../components/CreateUserForm.svelte';
 
 	const zero = getZero();
 	const users = useQuery(
-		zero.query.user
+		zero.query.users
 			.limit(30)
 			.orderBy('age', 'asc')
 			.related('messages', (m) => m.related('tags'))

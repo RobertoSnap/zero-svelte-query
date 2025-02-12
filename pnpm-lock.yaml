@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rocicorp/zero':
-        specifier: ^0.13.2025013101
-        version: 0.13.2025013101
+        specifier: ^0.14.2025020701
+        version: 0.14.2025020701
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.6
@@ -49,8 +49,8 @@ importers:
         specifier: ^0.38.4
         version: 0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)
       drizzle-zero:
-        specifier: ^0.3.1
-        version: 0.3.1(@rocicorp/zero@0.13.2025013101)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5))
+        specifier: ^0.5.0
+        version: 0.5.0(@rocicorp/zero@0.14.2025020701)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5))
       eslint:
         specifier: ^9.19.0
         version: 9.19.0
@@ -1313,8 +1313,8 @@ packages:
     resolution: {integrity: sha512-bm+VUdF4CnKVjUj/dSCmVu0hjcyXaF/nKkw2rNhZUjGeBOMRy/hh8z/32h311es4dxCVvcZ3+QHQHMxF2YG5Kw==}
     hasBin: true
 
-  '@rocicorp/zero@0.13.2025013101':
-    resolution: {integrity: sha512-L3IgpM5k3F8Bk78HoFFN136d23SFOtXhVVs8QIEr0iDYTN9cGbo0YUNhkV4HqEOPCKvMZDe1i6o9JnSu0CKMNw==}
+  '@rocicorp/zero@0.14.2025020701':
+    resolution: {integrity: sha512-+U1MeHvEapxEfa++MI2V2jplDTU+GuYB0EF/1lFbjkzKKWuk12wR/RNJBJBJOI7GjBTQsPE6IW0bOUz9cMWhnQ==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -2189,8 +2189,8 @@ packages:
       sqlite3:
         optional: true
 
-  drizzle-zero@0.3.1:
-    resolution: {integrity: sha512-RKhhzw8mM0d3ZFZ6MJrckbEfwnXWGsNsJEFBGWRWROnPJt9kl9AAFD7noQBCUvkBUk86Fp8CjZv3UvAo857Fdg==}
+  drizzle-zero@0.5.0:
+    resolution: {integrity: sha512-GhbF7IbSuJKFl3q5oVbW6YuyhMKVeRTwsxVg4KZjRi5t49462F5eRZ1JqqWUVDsXzDLvmOywkdg1akxYPsfXZQ==}
     peerDependencies:
       '@rocicorp/zero': '>=0.13.2025013101'
       drizzle-orm: '>=0.36.0'
@@ -2929,9 +2929,6 @@ packages:
   macos-release@3.3.0:
     resolution: {integrity: sha512-tPJQ1HeyiU2vRruNGhZ+VleWuMQRro8iFtJxYgnS4NQe+EukKF6aGiIT+7flZhISAt2iaXBCfFGvAyif7/f8nQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
-  magic-stopwatch@1.0.1:
-    resolution: {integrity: sha512-TEw2BmxonXw6YtluZis5CXRkyuA+4hoX41EK2r2x2TAxCHpjscVHxOdauQ10T6Gu7Er1y4d3ZojsGa+m6jfTEw==}
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
@@ -5188,7 +5185,7 @@ snapshots:
       bindings: 1.5.0
       prebuild-install: 7.1.3
 
-  '@rocicorp/zero@0.13.2025013101':
+  '@rocicorp/zero@0.14.2025020701':
     dependencies:
       '@badrap/valita': 0.3.11
       '@databases/escape-identifier': 1.0.3
@@ -5220,7 +5217,6 @@ snapshots:
       js-xxhash: 4.0.0
       json-custom-numbers: 3.1.1
       kasi: 1.1.1
-      magic-stopwatch: 1.0.1
       nanoid: 5.0.9
       pg: 8.13.1
       pg-format: pg-format-fix@1.0.5
@@ -6038,9 +6034,9 @@ snapshots:
       pg: 8.13.1
       postgres: 3.4.5
 
-  drizzle-zero@0.3.1(@rocicorp/zero@0.13.2025013101)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)):
+  drizzle-zero@0.5.0(@rocicorp/zero@0.14.2025020701)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)):
     dependencies:
-      '@rocicorp/zero': 0.13.2025013101
+      '@rocicorp/zero': 0.14.2025020701
       drizzle-orm: 0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)
 
   duplexify@4.1.3:
@@ -6857,8 +6853,6 @@ snapshots:
   lru-cache@7.18.3: {}
 
   macos-release@3.3.0: {}
-
-  magic-stopwatch@1.0.1: {}
 
   magic-string@0.30.17:
     dependencies:

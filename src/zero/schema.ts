@@ -17,30 +17,30 @@ export const schema =
     createZeroSchema(drizzleSchemas, {
         version: 1,
         tables: {
-            user: allColumns(drizzleSchemas.userTable),
-            message: allColumns(drizzleSchemas.messageTable),
-            tag: allColumns(drizzleSchemas.tagTable),
-            messageTag: allColumns(drizzleSchemas.messageTagTable),
+            users: allColumns(drizzleSchemas.users),
+            messages: allColumns(drizzleSchemas.messages),
+            tags: allColumns(drizzleSchemas.tags),
+            messageTags: allColumns(drizzleSchemas.messageTags),
         },
         manyToMany: {
-            message: {
-                tags: ["messageTag", "tag"]
+            messages: {
+                tags: ["messageTags", "tags"]
             }
         },
     })
 
 
 export type Schema = typeof schema;
-export type UserZero = Row<typeof schema.tables.user>;
-export type MessageZero = Row<typeof schema.tables.message>;
-export type TagZero = Row<typeof schema.tables.tag>;
-export type MessageTagZero = Row<typeof schema.tables.messageTag>;
+export type UserZero = Row<typeof schema.tables.users>;
+export type MessageZero = Row<typeof schema.tables.messages>;
+export type TagZero = Row<typeof schema.tables.tags>;
+export type MessageTagZero = Row<typeof schema.tables.messageTags>;
 
 
 
 export const permissions = definePermissions<AuthData, Schema>(schema, () => {
     return {
-        user: {
+        users: {
             row: {
                 select: ANYONE_CAN,
                 insert: ANYONE_CAN,
@@ -49,7 +49,7 @@ export const permissions = definePermissions<AuthData, Schema>(schema, () => {
             },
 
         },
-        message: {
+        messages: {
             row: {
                 select: ANYONE_CAN,
                 insert: ANYONE_CAN,
@@ -57,7 +57,7 @@ export const permissions = definePermissions<AuthData, Schema>(schema, () => {
                 delete: ANYONE_CAN
             }
         },
-        tag: {
+        tags: {
             row: {
                 select: ANYONE_CAN,
                 insert: ANYONE_CAN,

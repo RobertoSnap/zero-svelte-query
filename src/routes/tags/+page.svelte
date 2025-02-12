@@ -3,7 +3,7 @@
 	import { getZero } from '$utils/zero.state.svelte';
 
 	const zero = getZero();
-	let tags = useQuery(zero.query.tag);
+	let tags = useQuery(zero.query.tags);
 </script>
 
 {#if tags.current}

@@ -7,7 +7,7 @@
 	let age = $state(18);
 
 	function handleSubmit() {
-		zero.mutate.user.insert({
+		zero.mutate.users.insert({
 			age: age,
 			id: crypto.randomUUID(),
 			name: name || 'Anonymous'

@@ -1,5 +1,5 @@
 import * as drizzleSchema from "$server/db/tables/index.js";
-import { messageTable, messageTagTable, tagTable, userTable } from "$server/db/tables/placeholder.table.js";
+import { messages, messageTags, tags, users } from "$server/db/tables/placeholder.table.js";
 import { Zero } from "@rocicorp/zero";
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import { drizzle } from "drizzle-orm/node-postgres";
@@ -35,20 +35,20 @@ export const db = drizzle(pool, {
 });
 
 export const seed = async () => {
-  const [user] = await db.insert(userTable).values({ age: 20, id: randomUUID(), name: "John Doe", createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }).returning()
-  const [tag] = await db.insert(tagTable).values({ id: randomUUID(), name: "Hello World" }).returning()
-  const [message] = await db.insert(messageTable).values({
+  const [user] = await db.insert(users).values({ age: 20, id: randomUUID(), name: "John Doe", createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }).returning()
+  const [tag] = await db.insert(tags).values({ id: randomUUID(), name: "Hello World" }).returning()
+  const [message] = await db.insert(messages).values({
     content: "Hello, Doe!",
     createdAt: new Date().toISOString(),
     id: randomUUID(),
     updatedAt: new Date().toISOString(),
     userId: user.id,
   }).returning()
-  await db.insert(messageTagTable).values({ id: randomUUID(), messageId: message.id, tagId: tag.id })
+  await db.insert(messageTags).values({ id: randomUUID(), messageId: message.id, tagId: tag.id })
 
 
   // Create additional users
-  const [user2] = await db.insert(userTable).values({
+  const [user2] = await db.insert(users).values({
     age: 18,
     id: randomUUID(),
     name: "Jane Smith",
@@ -56,7 +56,7 @@ export const seed = async () => {
     updatedAt: new Date().toISOString()
   }).returning();
 
-  const [user3] = await db.insert(userTable).values({
+  const [user3] = await db.insert(users).values({
     age: 32,
     id: randomUUID(),
     name: "Bob Wilson",
@@ -65,18 +65,18 @@ export const seed = async () => {
   }).returning();
 
   // Create more tags
-  const [tag2] = await db.insert(tagTable).values({
+  const [tag2] = await db.insert(tags).values({
     id: randomUUID(),
     name: "Important"
   }).returning();
 
-  const [tag3] = await db.insert(tagTable).values({
+  const [tag3] = await db.insert(tags).values({
     id: randomUUID(),
     name: "Question"
   }).returning();
 
   // Create additional messages
-  const [message2] = await db.insert(messageTable).values({
+  const [message2] = await db.insert(messages).values({
     content: "How is everyone doing?",
     createdAt: new Date().toISOString(),
     id: randomUUID(),
@@ -84,7 +84,7 @@ export const seed = async () => {
     userId: user2.id,
   }).returning();
 
-  const [message3] = await db.insert(messageTable).values({
+  const [message3] = await db.insert(messages).values({
     content: "Great weather today!",
     createdAt: new Date().toISOString(),
     id: randomUUID(),
@@ -92,7 +92,7 @@ export const seed = async () => {
     userId: user3.id,
   }).returning();
 
-  const [message4] = await db.insert(messageTable).values({
+  const [message4] = await db.insert(messages).values({
     content: "Anyone up for lunch?",
     createdAt: new Date().toISOString(),
     id: randomUUID(),
@@ -101,7 +101,7 @@ export const seed = async () => {
   }).returning();
 
   // Add tag relationships
-  await db.insert(messageTagTable).values([
+  await db.insert(messageTags).values([
     { id: randomUUID(), messageId: message2.id, tagId: tag2.id },
     { id: randomUUID(), messageId: message2.id, tagId: tag3.id },
     { id: randomUUID(), messageId: message3.id, tagId: tag.id },
@@ -164,7 +164,7 @@ export const startPostgresAndZero = async () => {
   const basePgUrl = `postgresql://${postgresContainer.getUsername()}:${postgresContainer.getPassword()}@postgres-db:5432`;
 
   // Start Zero container
-  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.12.2025012501-3203d0`)
+  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.14.2025020701`)
     .withExposedPorts({
       container: 4848,
       host: ZERO_PORT,

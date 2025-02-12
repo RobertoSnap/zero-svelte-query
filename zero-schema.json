@@ -19,41 +19,8 @@
   "schema": {
     "version": 1,
     "tables": {
-      "message": {
-        "name": "message",
-        "columns": {
-          "id": {
-            "type": "string",
-            "optional": false,
-            "customType": null
-          },
-          "content": {
-            "type": "string",
-            "optional": false,
-            "customType": null
-          },
-          "userId": {
-            "type": "string",
-            "optional": true,
-            "customType": null
-          },
-          "createdAt": {
-            "type": "number",
-            "optional": true,
-            "customType": null
-          },
-          "updatedAt": {
-            "type": "number",
-            "optional": true,
-            "customType": null
-          }
-        },
-        "primaryKey": [
-          "id"
-        ]
-      },
-      "messageTag": {
-        "name": "messageTag",
+      "messageTags": {
+        "name": "messageTags",
         "columns": {
           "id": {
             "type": "string",
@@ -83,10 +50,45 @@
         },
         "primaryKey": [
           "id"
-        ]
+        ],
+        "serverName": "messageTag"
       },
-      "tag": {
-        "name": "tag",
+      "messages": {
+        "name": "messages",
+        "columns": {
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "content": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "userId": {
+            "type": "string",
+            "optional": true,
+            "customType": null
+          },
+          "createdAt": {
+            "type": "number",
+            "optional": true,
+            "customType": null
+          },
+          "updatedAt": {
+            "type": "number",
+            "optional": true,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ],
+        "serverName": "message"
+      },
+      "tags": {
+        "name": "tags",
         "columns": {
           "id": {
             "type": "string",
@@ -111,10 +113,11 @@
         },
         "primaryKey": [
           "id"
-        ]
+        ],
+        "serverName": "tag"
       },
-      "user": {
-        "name": "user",
+      "users": {
+        "name": "users",
         "columns": {
           "id": {
             "type": "string",
@@ -144,11 +147,12 @@
         },
         "primaryKey": [
           "id"
-        ]
+        ],
+        "serverName": "user"
       }
     },
     "relationships": {
-      "message": {
+      "messages": {
         "tags": [
           {
             "sourceField": [
@@ -157,7 +161,7 @@
             "destField": [
               "messageId"
             ],
-            "destSchema": "messageTag",
+            "destSchema": "messageTags",
             "cardinality": "many"
           },
           {
@@ -167,7 +171,7 @@
             "destField": [
               "id"
             ],
-            "destSchema": "tag",
+            "destSchema": "tags",
             "cardinality": "many"
           }
         ],
@@ -179,7 +183,7 @@
             "destField": [
               "id"
             ],
-            "destSchema": "user",
+            "destSchema": "users",
             "cardinality": "one"
           }
         ],
@@ -191,12 +195,12 @@
             "destField": [
               "messageId"
             ],
-            "destSchema": "messageTag",
+            "destSchema": "messageTags",
             "cardinality": "many"
           }
         ]
       },
-      "messageTag": {
+      "messageTags": {
         "message": [
           {
             "sourceField": [
@@ -205,7 +209,7 @@
             "destField": [
               "id"
             ],
-            "destSchema": "message",
+            "destSchema": "messages",
             "cardinality": "one"
           }
         ],
@@ -217,12 +221,12 @@
             "destField": [
               "id"
             ],
-            "destSchema": "tag",
+            "destSchema": "tags",
             "cardinality": "one"
           }
         ]
       },
-      "tag": {
+      "tags": {
         "messagesToTags": [
           {
             "sourceField": [
@@ -231,12 +235,12 @@
             "destField": [
               "tagId"
             ],
-            "destSchema": "messageTag",
+            "destSchema": "messageTags",
             "cardinality": "many"
           }
         ]
       },
-      "user": {
+      "users": {
         "messages": [
           {
             "sourceField": [
@@ -245,7 +249,7 @@
             "destField": [
               "userId"
             ],
-            "destSchema": "message",
+            "destSchema": "messages",
             "cardinality": "many"
           }
         ]
