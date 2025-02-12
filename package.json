@@ -1,6 +1,6 @@
 {
 	"name": "zero-svelte-query",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"repository": "https://github.com/RobertoSnap/zero-svelte-query",
 	"publishConfig": {
 		"access": "public",
