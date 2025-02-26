@@ -12,9 +12,15 @@ A Svelte library for integrating [@rocicorp/zero](https://github.com/rocicorp/ze
 - 🔄 Lightweight and minimalistic
 - ⚡️ Nice dev tools
 
-### [stolinski/zero-svelte](https://github.com/stolinski/zero-svelte) OR robertosnap/zero-svelte-query
-stolinski/zero-svelte should be the goto. I belive has funtionality for optimal query fetching etc.
-zero-svelte-query is naivly simple, so good for learning. Its JUST a createSubscriber wrapper around zero.query. Its repo has some nice examples for svelte and dev tools when creating svelte applications.
+### Zero Svelte Options
+
+#### [stolinski/zero-svelte](https://github.com/stolinski/zero-svelte)
+
+This should be your go-to option. It appears to have functionality for optimal query fetching and other advanced features.
+
+#### [robertosnap/zero-svelte-query](https://github.com/robertosnap/zero-svelte-query)
+
+This is a naively simple implementation, making it good for learning purposes or something to build upon. It's currently a `createSubscriber` wrapper around `zero.query`. The repository has some nice examples for Svelte and developer tools when creating Svelte applications.
 
 
 ## Installation
