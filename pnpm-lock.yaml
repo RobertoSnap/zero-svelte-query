@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rocicorp/zero':
-        specifier: ^0.14.2025020701
-        version: 0.14.2025020701
+        specifier: ^0.16.2025022800
+        version: 0.16.2025022800
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.6
@@ -50,7 +50,7 @@ importers:
         version: 0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)
       drizzle-zero:
         specifier: ^0.5.0
-        version: 0.5.0(@rocicorp/zero@0.14.2025020701)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5))
+        version: 0.5.0(@rocicorp/zero@0.16.2025022800)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5))
       eslint:
         specifier: ^9.19.0
         version: 9.19.0
@@ -1313,8 +1313,8 @@ packages:
     resolution: {integrity: sha512-bm+VUdF4CnKVjUj/dSCmVu0hjcyXaF/nKkw2rNhZUjGeBOMRy/hh8z/32h311es4dxCVvcZ3+QHQHMxF2YG5Kw==}
     hasBin: true
 
-  '@rocicorp/zero@0.14.2025020701':
-    resolution: {integrity: sha512-+U1MeHvEapxEfa++MI2V2jplDTU+GuYB0EF/1lFbjkzKKWuk12wR/RNJBJBJOI7GjBTQsPE6IW0bOUz9cMWhnQ==}
+  '@rocicorp/zero@0.16.2025022800':
+    resolution: {integrity: sha512-+8Zgh8hbzTh0nB3C47M/zR8iAT6M49T4fJzSjJ3qXS6a2j7AvgljijWMFhMPBXG/jBtIsZbIkGk1O2Wf0PwDeg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -5185,7 +5185,7 @@ snapshots:
       bindings: 1.5.0
       prebuild-install: 7.1.3
 
-  '@rocicorp/zero@0.14.2025020701':
+  '@rocicorp/zero@0.16.2025022800':
     dependencies:
       '@badrap/valita': 0.3.11
       '@databases/escape-identifier': 1.0.3
@@ -6034,9 +6034,9 @@ snapshots:
       pg: 8.13.1
       postgres: 3.4.5
 
-  drizzle-zero@0.5.0(@rocicorp/zero@0.14.2025020701)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)):
+  drizzle-zero@0.5.0(@rocicorp/zero@0.16.2025022800)(drizzle-orm@0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)):
     dependencies:
-      '@rocicorp/zero': 0.14.2025020701
+      '@rocicorp/zero': 0.16.2025022800
       drizzle-orm: 0.38.4(@opentelemetry/api@1.9.0)(@types/pg@8.11.11)(pg@8.13.1)(postgres@3.4.5)
 
   duplexify@4.1.3:

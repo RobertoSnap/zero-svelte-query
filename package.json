@@ -20,12 +20,10 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
-		"zero": "zero-cache --schema-file zero-schema.json",
 		"zero:dev": "zero-cache-dev -p src/server/zero/schema.ts",
-		"schema": "zero-build-schema -p src/zero/schema.ts",
 		"db:generate": "drizzle-kit generate",
-		"pretest": "pnpm drizzle-kit generate && pnpm run schema",
-		"dev:backend": "pnpm drizzle-kit generate && pnpm run schema && TEST=true vite-node src/scripts/database-and-zero-server.ts",
+		"pretest": "pnpm drizzle-kit generate",
+		"dev:backend": "TEST=true vite-node src/scripts/database-and-zero-server.ts",
 		"release": "release-it",
 		"release:beta:new:minor": "release-it minor --preRelease=beta",
 		"release:beta:new:major": "release-it major --preRelease=beta",
@@ -58,7 +56,7 @@
 		}
 	},
 	"peerDependencies": {
-		"@rocicorp/zero": "^0.14.2025020701",
+		"@rocicorp/zero": "^0.16.2025022800",
 		"svelte": "^5.19.2"
 	},
 	"devDependencies": {

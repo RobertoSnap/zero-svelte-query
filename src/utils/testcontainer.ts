@@ -7,6 +7,7 @@ import path from "path";
 import { Pool } from "pg";
 import { GenericContainer, Network, PullPolicy } from "testcontainers";
 
+import { exec } from "child_process";
 import { randomUUID } from "crypto";
 import { schema } from "../zero/schema.js";
 
@@ -160,23 +161,25 @@ export const startPostgresAndZero = async () => {
     .start();
 
   await seed();
+  const basePgUrl = `postgresql://${postgresContainer.getUsername()}:${postgresContainer.getPassword()}`;
+  const basePgUrlWithInternalPort = `${basePgUrl}@postgres-db:5432`;
+  const basePgUrlWithExternalPort = `${basePgUrl}@127.0.0.1:${PG_PORT}`;
 
-  const basePgUrl = `postgresql://${postgresContainer.getUsername()}:${postgresContainer.getPassword()}@postgres-db:5432`;
 
   // Start Zero container
-  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.14.2025020701`)
+  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.16.2025022800`)
     .withExposedPorts({
       container: 4848,
       host: ZERO_PORT,
     })
     .withNetwork(network)
     .withEnvironment({
-      ZERO_UPSTREAM_DB: `${basePgUrl}/drizzle_zero`,
-      ZERO_CVR_DB: `${basePgUrl}/drizzle_zero_cvr`,
-      ZERO_CHANGE_DB: `${basePgUrl}/drizzle_zero_cdb`,
+      ZERO_UPSTREAM_DB: `${basePgUrlWithInternalPort}/drizzle_zero`,
+      ZERO_CVR_DB: `${basePgUrlWithInternalPort}/drizzle_zero_cvr`,
+      ZERO_CHANGE_DB: `${basePgUrlWithInternalPort}/drizzle_zero_cdb`,
       ZERO_AUTH_SECRET: "secretkey",
       ZERO_REPLICA_FILE: "/zero.db",
-      ZERO_NUM_SYNC_WORKERS: "2",
+      ZERO_NUM_SYNC_WORKERS: "1",
       ZERO_LOG_LEVEL: "debug",
     })
     .withCopyFilesToContainer([
@@ -193,6 +196,19 @@ export const startPostgresAndZero = async () => {
       });
     })
     .start()
+
+  await new Promise((resolve, reject) => {
+    exec(
+      `npx zero-deploy-permissions --schema-path ${path.join(__dirname, "../zero/schema.ts")} --upstream-db ${basePgUrlWithExternalPort}/drizzle_zero`,
+      (error, stdout) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve(stdout);
+      },
+    );
+  });
 
   return {
     postgresContainer,
