@@ -15,7 +15,6 @@ type AuthData = {
 
 export const schema =
     createZeroSchema(drizzleSchemas, {
-        version: 1,
         tables: {
             users: allColumns(drizzleSchemas.users),
             messages: allColumns(drizzleSchemas.messages),
@@ -40,11 +39,25 @@ export type MessageTagZero = Row<typeof schema.tables.messageTags>;
 
 export const permissions = definePermissions<AuthData, Schema>(schema, () => {
     return {
+        messageTags: {
+            row: {
+                select: ANYONE_CAN,
+                insert: ANYONE_CAN,
+                update: {
+                    postMutation: ANYONE_CAN,
+                    preMutation: ANYONE_CAN
+                },
+                delete: ANYONE_CAN
+            }
+        },
         users: {
             row: {
                 select: ANYONE_CAN,
                 insert: ANYONE_CAN,
-                update: ANYONE_CAN,
+                update: {
+                    postMutation: ANYONE_CAN,
+                    preMutation: ANYONE_CAN
+                },
                 delete: ANYONE_CAN
             },
 
@@ -53,7 +66,10 @@ export const permissions = definePermissions<AuthData, Schema>(schema, () => {
             row: {
                 select: ANYONE_CAN,
                 insert: ANYONE_CAN,
-                update: ANYONE_CAN,
+                update: {
+                    postMutation: ANYONE_CAN,
+                    preMutation: ANYONE_CAN
+                },
                 delete: ANYONE_CAN
             }
         },
@@ -61,7 +77,10 @@ export const permissions = definePermissions<AuthData, Schema>(schema, () => {
             row: {
                 select: ANYONE_CAN,
                 insert: ANYONE_CAN,
-                update: ANYONE_CAN,
+                update: {
+                    postMutation: ANYONE_CAN,
+                    preMutation: ANYONE_CAN
+                },
                 delete: ANYONE_CAN
             }
         }
