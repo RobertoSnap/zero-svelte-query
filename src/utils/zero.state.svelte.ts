@@ -12,7 +12,12 @@ export const setZeroStore = (_options: Partial<ZeroOptions<Schema>>) => {
 		logLevel: "debug",
 		..._options,
 	} as ZeroOptions<Schema>;
-	zeroStore.set(new Zero(options));
+	const zero = new Zero(options)
+	zero.query.users.limit(100).preload()
+	zero.query.messages.limit(100).preload()
+	zero.query.tags.limit(100).preload()
+	zero.query.messageTags.limit(100).preload()
+	zeroStore.set(zero);
 	zeroReady.set(true);
 }
 
