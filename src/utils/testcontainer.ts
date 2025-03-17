@@ -124,7 +124,7 @@ export const startPostgresAndZero = async () => {
   const postgresContainer = await new PostgreSqlContainer(
     `postgres:${process.env.PG_VERSION ?? "16"}`,
   )
-    .withDatabase("postgres")
+    .withDatabase("drizzle_zero")
     .withUsername("user")
     .withPassword("password")
     .withNetwork(network)
@@ -159,6 +159,7 @@ export const startPostgresAndZero = async () => {
     //   });
     // })
     .start();
+  console.log("TEST")
 
   await seed();
   const basePgUrl = `postgresql://${postgresContainer.getUsername()}:${postgresContainer.getPassword()}`;
@@ -175,26 +176,20 @@ export const startPostgresAndZero = async () => {
     .withNetwork(network)
     .withEnvironment({
       ZERO_UPSTREAM_DB: `${basePgUrlWithInternalPort}/drizzle_zero`,
-      ZERO_CVR_DB: `${basePgUrlWithInternalPort}/drizzle_zero_cvr`,
-      ZERO_CHANGE_DB: `${basePgUrlWithInternalPort}/drizzle_zero_cdb`,
+      ZERO_CVR_DB: `${basePgUrlWithInternalPort}/drizzle_zero`,
+      ZERO_CHANGE_DB: `${basePgUrlWithInternalPort}/drizzle_zero`,
       ZERO_AUTH_SECRET: "secretkey",
       ZERO_REPLICA_FILE: "/zero.db",
       ZERO_NUM_SYNC_WORKERS: "1",
       ZERO_LOG_LEVEL: "debug",
     })
-    .withCopyFilesToContainer([
-      {
-        source: path.join(__dirname, "./../../zero-schema.json"),
-        target: "/opt/app/zero-schema.json",
-      },
-    ])
     .withStartupTimeout(60000)
     .withPullPolicy(PullPolicy.alwaysPull())
-    .withLogConsumer((stream) => {
-      stream.on('data', (line) => {
-        console.log(`[Zero] ${line}`);
-      });
-    })
+    // .withLogConsumer((stream) => {
+    //   stream.on('data', (line) => {
+    //     console.log(`[Zero] ${line}`);
+    //   });
+    // })
     .start()
 
   await new Promise((resolve, reject) => {

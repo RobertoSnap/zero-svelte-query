@@ -1,5 +1,3 @@
-\c drizzle_zero;
-
 CREATE SCHEMA "zero";
 --> statement-breakpoint
 CREATE TABLE "message" (
