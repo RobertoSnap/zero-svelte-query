@@ -1,32 +1,16 @@
-import * as drizzleSchemas from "$server/db/tables/index.js";
 import {
     ANYONE_CAN,
     definePermissions,
     type Row
 } from "@rocicorp/zero";
-import type { PgTable } from "drizzle-orm/pg-core";
-import { createZeroSchema } from "drizzle-zero";
+import { schema, type Schema } from "./zero-schema.gen";
+
 
 type AuthData = {
     sub: string;
     org_id: string;
     org_role: string;
 };
-
-export const schema =
-    createZeroSchema(drizzleSchemas, {
-        tables: {
-            users: allColumns(drizzleSchemas.users),
-            messages: allColumns(drizzleSchemas.messages),
-            tags: allColumns(drizzleSchemas.tags),
-            messageTags: allColumns(drizzleSchemas.messageTags),
-        },
-        manyToMany: {
-            messages: {
-                tags: ["messageTags", "tags"]
-            }
-        },
-    })
 
 
 export type Schema = typeof schema;
@@ -86,11 +70,3 @@ export const permissions = definePermissions<AuthData, Schema>(schema, () => {
         }
     };
 })
-
-function allColumns<T extends PgTable>(table: T): Record<keyof T['_']['columns'], true> {
-    return Object.keys(table).reduce((acc, key) => {
-        // @ts-expect-error - We know the column names are valid
-        acc[key] = true
-        return acc
-    }, {} as Record<keyof T['_']['columns'], true>)
-}
