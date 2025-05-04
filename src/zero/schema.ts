@@ -3,7 +3,7 @@ import {
     definePermissions,
     type Row
 } from "@rocicorp/zero";
-import { schema, type Schema } from "./zero-schema.gen";
+import { schema } from "./zero-schema.gen";
 
 
 type AuthData = {
@@ -11,8 +11,7 @@ type AuthData = {
     org_id: string;
     org_role: string;
 };
-
-
+export { schema };
 export type Schema = typeof schema;
 export type UserZero = Row<typeof schema.tables.users>;
 export type MessageZero = Row<typeof schema.tables.messages>;

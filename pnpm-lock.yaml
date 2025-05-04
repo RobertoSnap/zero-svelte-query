@@ -11,6 +11,9 @@ importers:
       '@rocicorp/zero':
         specifier: ^0.19.2025050203
         version: 0.19.2025050203(typescript@5.8.3)
+      postgres:
+        specifier: ^3.4.5
+        version: 3.4.5
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.9

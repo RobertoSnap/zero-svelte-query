@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"dev": "pnpm run-p dev:backend dev:vite",
-		"dev:vite": "vite dev",
+		"dev:vite": "vite dev --port 3000",
 		"build": "vite build && npm run prepack",
 		"preview": "pnpm run-p dev:backend vite:preview",
 		"vite:preview": "vite preview",
@@ -29,7 +29,7 @@
 		"release:beta:new:major": "release-it major --preRelease=beta",
 		"release:beta:patch": "release-it --preRelease=beta",
 		"release:beta:rc": "release-it --preRelease=rc",
-		"drizzle:zero": "drizzle-zero generate --format"
+		"drizzle:zero": "pnpm drizzle-zero generate --format --output src/zero/zero-schema.gen.ts"
 	},
 	"release-it": {
 		"git": {
@@ -93,5 +93,8 @@
 		"vite": "^6.3.4",
 		"vite-node": "^3.1.2",
 		"vitest": "^3.1.2"
+	},
+	"dependencies": {
+		"postgres": "^3.4.5"
 	}
 }

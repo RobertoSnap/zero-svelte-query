@@ -159,7 +159,6 @@ export const startPostgresAndZero = async () => {
     //   });
     // })
     .start();
-  console.log("TEST")
 
   await seed();
   const basePgUrl = `postgresql://${postgresContainer.getUsername()}:${postgresContainer.getPassword()}`;
@@ -182,14 +181,15 @@ export const startPostgresAndZero = async () => {
       ZERO_REPLICA_FILE: "/zero.db",
       ZERO_NUM_SYNC_WORKERS: "1",
       ZERO_LOG_LEVEL: "debug",
+      ZERO_PUSH_URL: `http://host.docker.internal:3000/api/zero`,
     })
     .withStartupTimeout(60000)
     .withPullPolicy(PullPolicy.alwaysPull())
-    // .withLogConsumer((stream) => {
-    //   stream.on('data', (line) => {
-    //     console.log(`[Zero] ${line}`);
-    //   });
-    // })
+    .withLogConsumer((stream) => {
+      stream.on('data', (line) => {
+        console.log(`[Zero] ${line}`);
+      });
+    })
     .start()
 
   await new Promise((resolve, reject) => {

@@ -6,22 +6,37 @@
 	const { userId } = $props();
 
 	let content = $state('');
+	let tagName = $state('');
 
 	function handleSubmit() {
 		if (!content.trim()) return;
-		console.log('content', content);
-		zero.mutate.messages.insert({
-			id: crypto.randomUUID(),
-			content: 'test',
-			userId: userId
+
+		// Generate UUIDs for the required entities
+		const messageId = crypto.randomUUID();
+		const tagId = crypto.randomUUID();
+		const messageTagId = crypto.randomUUID();
+
+		// Use the custom mutation
+		zero.mutate.messageTag.insert({
+			messageId,
+			tagId,
+			messageTagId,
+			content,
+			tagName: tagName.trim() || 'general',
+			userId
 		});
+
 		// Reset form
 		content = '';
+		tagName = '';
 	}
 </script>
 
 <form class="message-form" onsubmit={handleSubmit}>
-	<input type="text" bind:value={content} placeholder="Type a message..." />
+	<div class="inputs">
+		<input type="text" bind:value={content} placeholder="Type a message..." />
+		<input type="text" bind:value={tagName} placeholder="Add a tag (optional)" />
+	</div>
 	<button type="submit">Send</button>
 </form>
 
@@ -30,6 +45,13 @@
 		display: flex;
 		gap: 0.5rem;
 		margin-top: 1rem;
+	}
+
+	.inputs {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		flex: 1;
 	}
 
 	input {
@@ -55,6 +77,8 @@
 		cursor: pointer;
 		font-size: 0.9rem;
 		transition: background 0.2s ease;
+		align-self: flex-end;
+		height: 38px;
 	}
 
 	button:hover {
