@@ -143,6 +143,8 @@ This library is a lightweight createSubscriber wrapper around the zero instance.
 | ^0.17.0 | ^ 0.6.0 | 0.17.2025031400 |
 | ^0.18.0 | ^ 0.7.0 | 0.18.2025042300 |
 | ^0.19.0 | ^ 0.8.0 | 0.19.2025050203 |
+| ^0.20.0 | ^ 0.9.0 | 0.20.2025052100|
+
 # Credits
 - [stolinski/zero-svelte](https://github.com/stolinski/zero-svelte)
 - [BriefHQ/drizzle-zero](https://github.com/BriefHQ/drizzle-zero/)

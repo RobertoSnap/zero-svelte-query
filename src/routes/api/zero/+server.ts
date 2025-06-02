@@ -19,8 +19,6 @@ const processor = new PushProcessor(
 );
 
 export const POST: RequestHandler = async ({ request }) => {
-    console.log("PUSH REQUEST")
-    console.log('request', request);
     const authData = {
         userId: '123',
     }
