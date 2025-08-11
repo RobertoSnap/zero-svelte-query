@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rocicorp/zero':
-        specifier: ^0.20.2025052100
-        version: 0.20.2025052100(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3)
+        specifier: ^0.22.202508020
+        version: 0.22.2025080200(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3)
       postgres:
         specifier: ^3.4.5
         version: 3.4.5
@@ -52,8 +52,8 @@ importers:
         specifier: ^0.43.1
         version: 0.43.1(@opentelemetry/api@1.9.0)(@types/pg@8.11.14)(gel@2.1.0)(pg@8.15.6)(postgres@3.4.5)
       drizzle-zero:
-        specifier: ^0.10.5
-        version: 0.10.5(@rocicorp/zero@0.20.2025052100(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3))(drizzle-orm@0.43.1(@opentelemetry/api@1.9.0)(@types/pg@8.11.14)(gel@2.1.0)(pg@8.15.6)(postgres@3.4.5))(prettier@3.5.3)
+        specifier: ^0.13.2
+        version: 0.13.2(@rocicorp/zero@0.22.2025080200(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3))(@types/pg@8.11.14)(drizzle-orm@0.43.1(@opentelemetry/api@1.9.0)(@types/pg@8.11.14)(gel@2.1.0)(pg@8.15.6)(postgres@3.4.5))(pg@8.15.6)(postgres@3.4.5)(prettier@3.5.3)
       eslint:
         specifier: ^9.26.0
         version: 9.26.0(jiti@2.4.2)
@@ -1331,13 +1331,13 @@ packages:
     resolution: {integrity: sha512-TfjMTQp9cNNqNtHFfa+XHEGdA7NnmDRu+ZJH4YF3dso0Xk/b9DMhg/sl+b6CR4ThFZArXXDsG1j8Mwl34wcOZQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  '@rocicorp/zero-sqlite3@1.0.4':
-    resolution: {integrity: sha512-bm+VUdF4CnKVjUj/dSCmVu0hjcyXaF/nKkw2rNhZUjGeBOMRy/hh8z/32h311es4dxCVvcZ3+QHQHMxF2YG5Kw==}
+  '@rocicorp/zero-sqlite3@1.0.8':
+    resolution: {integrity: sha512-lWxHKeetYuqYHeM6G+r/1fyQ30JbyiP+IT23knLGowknkpZmdEMUN1453lRHPpvFASIWRwRmhKrUIFDwXHC/Dg==}
     hasBin: true
 
-  '@rocicorp/zero@0.20.2025052100':
-    resolution: {integrity: sha512-EoU+X6uq2Q6PyQffsRQNqI1DM+Jyza2ION1cuIQEvpwyui8saQurqqyJzl8c1AW4u06AhT/gpMv0zi8EYge9Zw==}
-    engines: {node: '>=20'}
+  '@rocicorp/zero@0.22.2025080200':
+    resolution: {integrity: sha512-WM8QHcppkCT19rvICgFpgDqHDeIctZTmFlyuDPQy3l7UIeexdIJ+aBETrjpCXYcCYHotdwDyH5WUaWpwDjjfrQ==}
+    engines: {node: '>=22'}
     hasBin: true
 
   '@rollup/plugin-commonjs@28.0.3':
@@ -2299,14 +2299,23 @@ packages:
       sqlite3:
         optional: true
 
-  drizzle-zero@0.10.5:
-    resolution: {integrity: sha512-huj87PdRcBKf4nhsY17opdGcKrcK6T8rHBEennKcLYUe7Wg8EfBnh+cCnFWazArrXaSa01sMBSBEHrRbLkdgmg==}
+  drizzle-zero@0.13.2:
+    resolution: {integrity: sha512-DWwXFA798z6Ui4bRzCtjdOxbLi6qnoEkgomEpsbORjNzQdu3H/ER6S6XRlzyr2Kfyy57TCFoLRxbKUxY9ss7lQ==}
     hasBin: true
     peerDependencies:
       '@rocicorp/zero': '>=0.13.2025013101'
+      '@types/pg': ''
       drizzle-orm: '>=0.36.0'
+      pg: ''
+      postgres: ''
       prettier: '>=3.0.0'
     peerDependenciesMeta:
+      '@types/pg':
+        optional: true
+      pg:
+        optional: true
+      postgres:
+        optional: true
       prettier:
         optional: true
 
@@ -2881,6 +2890,10 @@ packages:
     resolution: {integrity: sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==}
     engines: {node: '>=0.10.0'}
 
+  is-in-subnet@4.0.1:
+    resolution: {integrity: sha512-D3mAuAo6vZ+/AxsLkEIZ3moTx7AIGQLLzLQslV6n0RRO/CzdUemXap+lj3OPAehKCbdkGPikxOVUYqRo0GGJAA==}
+    engines: {node: '>=10.23.0'}
+
   is-inside-container@1.0.0:
     resolution: {integrity: sha512-KIYLCCJghfHZxqjYBE7rEy0OBuTd5xCHS7tHVgvCLkx7StIoaxwNW3hCALgEUjFfeRk+MG/Qxmp/vtETEF3tRA==}
     engines: {node: '>=14.16'}
@@ -2991,6 +3004,9 @@ packages:
 
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
+
+  jsonc-parser@3.3.1:
+    resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
 
   kasi@1.1.1:
     resolution: {integrity: sha512-pzBwGWFIjf84T/8aD0XzMli1T3Ckr/jVLh6v0Jskwiv5ehmcgDM+vpYFSk8WzGn4ed4HqgaifTgQUHzzZHa+Qw==}
@@ -5798,12 +5814,12 @@ snapshots:
 
   '@rocicorp/resolver@1.0.2': {}
 
-  '@rocicorp/zero-sqlite3@1.0.4':
+  '@rocicorp/zero-sqlite3@1.0.8':
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.3
 
-  '@rocicorp/zero@0.20.2025052100(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3)':
+  '@rocicorp/zero@0.22.2025080200(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3)':
     dependencies:
       '@badrap/valita': 0.3.11
       '@databases/escape-identifier': 1.0.3
@@ -5828,7 +5844,7 @@ snapshots:
       '@rocicorp/lock': 1.0.4
       '@rocicorp/logger': 5.4.0
       '@rocicorp/resolver': 1.0.2
-      '@rocicorp/zero-sqlite3': 1.0.4
+      '@rocicorp/zero-sqlite3': 1.0.8
       '@types/basic-auth': 1.1.8
       basic-auth: 2.0.1
       chalk: 5.4.1
@@ -5840,6 +5856,7 @@ snapshots:
       defu: 6.1.4
       eventemitter3: 5.0.1
       fastify: 5.3.2
+      is-in-subnet: 4.0.1
       jose: 5.10.0
       js-xxhash: 4.0.0
       json-custom-numbers: 3.1.1
@@ -6764,13 +6781,17 @@ snapshots:
       pg: 8.15.6
       postgres: 3.4.5
 
-  drizzle-zero@0.10.5(@rocicorp/zero@0.20.2025052100(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3))(drizzle-orm@0.43.1(@opentelemetry/api@1.9.0)(@types/pg@8.11.14)(gel@2.1.0)(pg@8.15.6)(postgres@3.4.5))(prettier@3.5.3):
+  drizzle-zero@0.13.2(@rocicorp/zero@0.22.2025080200(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3))(@types/pg@8.11.14)(drizzle-orm@0.43.1(@opentelemetry/api@1.9.0)(@types/pg@8.11.14)(gel@2.1.0)(pg@8.15.6)(postgres@3.4.5))(pg@8.15.6)(postgres@3.4.5)(prettier@3.5.3):
     dependencies:
-      '@rocicorp/zero': 0.20.2025052100(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3)
+      '@rocicorp/zero': 0.22.2025080200(@opentelemetry/core@2.0.0(@opentelemetry/api@1.9.0))(typescript@5.8.3)
       commander: 14.0.0
       drizzle-orm: 0.43.1(@opentelemetry/api@1.9.0)(@types/pg@8.11.14)(gel@2.1.0)(pg@8.15.6)(postgres@3.4.5)
+      jsonc-parser: 3.3.1
       ts-morph: 26.0.0
     optionalDependencies:
+      '@types/pg': 8.11.14
+      pg: 8.15.6
+      postgres: 3.4.5
       prettier: 3.5.3
 
   dunder-proto@1.0.1:
@@ -7466,6 +7487,8 @@ snapshots:
     dependencies:
       is-extglob: 2.1.1
 
+  is-in-subnet@4.0.1: {}
+
   is-inside-container@1.0.0:
     dependencies:
       is-docker: 3.0.0
@@ -7556,6 +7579,8 @@ snapshots:
   json-schema-traverse@1.0.0: {}
 
   json-stable-stringify-without-jsonify@1.0.1: {}
+
+  jsonc-parser@3.3.1: {}
 
   kasi@1.1.1: {}
 

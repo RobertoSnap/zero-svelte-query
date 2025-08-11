@@ -167,7 +167,7 @@ export const startPostgresAndZero = async () => {
 
 
   // Start Zero container
-  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.20.2025052100`)
+  const zeroContainer = await new GenericContainer(`rocicorp/zero:0.22.2025080200`)
     .withExposedPorts({
       container: 4848,
       host: ZERO_PORT,
